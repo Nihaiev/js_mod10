@@ -7,4 +7,4 @@
  *  - https://lpj-weather-service.herokuapp.com/
  */
 
-import '../css/common.css'
+import '../css/common.css' 
