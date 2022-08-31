@@ -1,5 +1,6 @@
 import '../css/common.css';
 import NewsApiService from './news-service';
+import articlesTpl from '../template/articles.hbs';
 
 const refs = {
   searchForm: document.querySelector('.js-search-form'),
@@ -17,10 +18,14 @@ function onSearch(e) {
 
   newsApiService.query = e.currentTarget.elements.query.value;
   newsApiService.resetPage();
-  newsApiService.fetchArticles(searchQuery);
+  newsApiService.fetchArticles().then(appendArticlesMarkup);
 }
 function onLoadMore() {
-  newsApiService.fetchArticles(searchQuery);
+  newsApiService.fetchArticles().then(appendArticlesMarkup);
 }
 
-//todo
+function appendArticlesMarkup(articles) {
+  refs.articlesContainer.insertAdjacentHTML('beforeend', articlesTpl(articles));
+}
+
+//todo 55
