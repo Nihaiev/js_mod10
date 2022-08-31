@@ -15,8 +15,15 @@ export default class NewsApiService {
     fetch(url, options)
       .then(r => r.json())
       .then(data => {
-        this.page += 1;
+        this.incrementPage();
       });
+  }
+
+  incrementPage() {
+    this.page += 1;
+  }
+  resetPage() {
+    this.page = 1;
   }
   get query() {
     return this.searchQuery;

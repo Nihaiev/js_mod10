@@ -16,11 +16,11 @@ function onSearch(e) {
   e.preventDefault();
 
   newsApiService.query = e.currentTarget.elements.query.value;
-
+  newsApiService.resetPage();
   newsApiService.fetchArticles(searchQuery);
 }
 function onLoadMore() {
   newsApiService.fetchArticles(searchQuery);
 }
 
-//todo 41
+//todo
